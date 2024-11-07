@@ -29,6 +29,7 @@ function Sidebar({ currentView, onViewChange }: SidebarProps) {
   };
 
   const footerLinks = [
+    { label: 'About', href: '/about' },
     { label: 'Legal', href: '#' },
     { label: 'Privacy Center', href: '#' },
     { label: 'Privacy Policy', href: '#' },
@@ -38,10 +39,10 @@ function Sidebar({ currentView, onViewChange }: SidebarProps) {
   ];
 
   return (
-    <div className="w-full sm:w-[420px] flex-shrink-0 flex flex-col bg-black">
+    <div className="w-full sm:w-[420px] flex-shrink-0 flex flex-col bg-white dark:bg-black text-black dark:text-white transition-colors">
       {/* Navigation Section */}
       <div className="p-2">
-        <div className="bg-zinc-900 rounded-lg p-4">
+        <div className="bg-gray-100 dark:bg-zinc-900 rounded-lg p-4">
           <div className="flex sm:flex-col gap-4">
             <button 
               className={`flex items-center gap-4 flex-1 sm:flex-none ${
@@ -116,13 +117,13 @@ function Sidebar({ currentView, onViewChange }: SidebarProps) {
           <div className="pt-4 border-t border-zinc-800 mt-4">
             <div className="flex flex-wrap gap-2 text-xs">
               {footerLinks.map(link => (
-                <a
+                <button
                   key={link.label}
-                  href={link.href}
+                  onClick={() => navigate(link.href)}
                   className="text-zinc-400 hover:text-white transition"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
             
